@@ -1,0 +1,15 @@
+/* 7 câu xác suất cực khó. Nạp sau extra2.js. Dòng: [mức độ, đề, đáp án, sai số, lời giải] */
+(function(){
+const K="Vận dụng cao · cực khó";
+const A={xs:[
+[K,"Hộp I có 4 bi đỏ, 6 bi trắng; hộp II có 5 bi đỏ, 5 bi trắng. Lấy ngẫu nhiên 2 bi từ hộp I bỏ sang hộp II, rồi lấy ngẫu nhiên 1 bi từ hộp II và được bi đỏ. Tính xác suất cả 2 bi chuyển sang đều là bi đỏ (3 chữ số thập phân).",0.161,.002,"Chuyển 0, 1, 2 bi đỏ có xác suất 15/45, 24/45, 6/45; hộp II có 12 bi, trong đó 5, 6, 7 bi đỏ. P(đỏ) = 29/60. P(2 bi đỏ và lấy đỏ) = (2/15)(7/12) = 7/90. Bayes: (7/90)/(29/60) = 14/87 ≈ <b>0,161</b>."],
+[K,"Một gia đình có hai con. Biết ít nhất một đứa là con trai sinh vào thứ Ba (giới tính và ngày sinh trong tuần đều đồng khả năng, độc lập). Tính xác suất cả hai con đều là con trai (3 chữ số thập phân).",0.481,.002,"Mỗi đứa có 14 khả năng (giới tính, ngày), tổng 196 cặp. Không có con trai sinh thứ Ba: 13² = 169 cặp ⇒ có: 27 cặp. Cả hai là trai và ít nhất một thứ Ba: 7² − 6² = 13 cặp. P = <b>13/27 ≈ 0,481</b> (khác 1/3 vì thông tin về ngày sinh làm thay đổi không gian mẫu)."],
+[K,"Người chơi có 2 đồng xu. Mỗi ván thắng thì được thêm 1 đồng với xác suất 0,6, thua thì mất 1 đồng với xác suất 0,4. Chơi liên tục đến khi có 4 đồng (thắng chung cuộc) hoặc 0 đồng (phá sản). Tính xác suất thắng chung cuộc (3 chữ số thập phân).",0.692,.002,"Gọi Pᵢ là xác suất thắng khi đang có i đồng: Pᵢ = 0,6Pᵢ₊₁ + 0,4Pᵢ₋₁, P₀ = 0, P₄ = 1. Đặt r = 0,4/0,6 = 2/3: Pᵢ = (1 − rⁱ)/(1 − r⁴). P₂ = (1 − 4/9)/(1 − 16/81) = 9/13 ≈ <b>0,692</b>."],
+[K,"Bỏ ngẫu nhiên 5 lá thư khác nhau vào 5 phong bì ghi sẵn địa chỉ đúng của từng lá (mỗi phong bì một lá). Biết có ít nhất một lá thư bỏ đúng phong bì, tính xác suất có đúng 2 lá bỏ đúng (3 chữ số thập phân).",0.263,.002,"Không lá nào đúng: D₅ = 44 cách (trên tổng 5! = 120) ⇒ có ít nhất 1 lá đúng: 76 cách. Đúng đúng 2 lá: C(5,2)·D₃ = 10·2 = 20 cách. P = 20/76 = 5/19 ≈ <b>0,263</b>."],
+[K,"Gieo ba con xúc xắc cân đối phân biệt. Biết tổng số chấm từ 14 trở lên, tính xác suất có ít nhất một con xuất hiện mặt 6 chấm (3 chữ số thập phân).",0.886,.002,"Số bộ có tổng 14, 15, 16, 17, 18: 15, 10, 6, 3, 1 ⇒ 35. Trong đó có ít nhất một mặt 6: tổng 14: 12 (loại {5,5,4}: 3); tổng 15: 9 (loại {5,5,5}: 1); tổng 16, 17, 18 đều có mặt 6: 6, 3, 1. Tổng 31. P = 31/35 ≈ <b>0,886</b>."],
+[K,"Hộp có 5 bi đỏ và 3 bi xanh. Lấy lần lượt không hoàn lại cho đến khi lấy được bi xanh đầu tiên thì dừng. Biết quá trình dừng sau không quá 3 lần lấy, tính xác suất nó dừng đúng ở lần lấy thứ 3 (3 chữ số thập phân).",0.217,.002,"P(dừng ở lần 1) = 3/8 = 21/56; lần 2: (5/8)(3/7) = 15/56; lần 3: (5/8)(4/7)(3/6) = 10/56. P(≤ 3) = 46/56. Kết quả 10/46 = 5/23 ≈ <b>0,217</b>."],
+[K,"Gieo một đồng xu cân đối nhiều lần đến khi xuất hiện hai mặt ngửa liên tiếp thì dừng. Tính xác suất quá trình dừng đúng ở lần gieo thứ 5 (lấy 4 chữ số thập phân).",0.09375,.0005,"Dừng ở lần 5 ⇔ lần 4 và 5 là N N, lần 3 phải là S (nếu không đã dừng sớm), và hai lần đầu không phải N N: có 3 khả năng (SS, SN, NS). P = 3/2⁵ = <b>3/32 ≈ 0,0938</b>."]
+]};
+const E=window.EXTRA||(window.EXTRA={});
+Object.keys(A).forEach(k=>{E[k]=(E[k]||[]).concat(A[k])});
+})();

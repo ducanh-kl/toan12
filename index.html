@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toán 12 trong đời thực</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14213d;--paper:#f4f8fc;--grid:#d9e6f2;--blue:#2b6cb0;--red:#e63946;--sun:#ffd166;--mint:#e3f5ec;--card:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;font:17px/1.65 "Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+header.hero{padding:64px 20px 40px;max-width:860px;margin:auto}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.1;margin:0 0 14px;font-weight:800}
+h1 span{background:linear-gradient(transparent 60%,var(--sun) 60%)}
+.hero p{max-width:60ch;margin:0}
+nav{position:sticky;top:0;z-index:5;background:var(--ink);display:flex;gap:4px;overflow-x:auto;padding:8px max(12px,calc((100% - 860px)/2 + 4px))}
+nav a{color:#fff;text-decoration:none;padding:6px 14px;border-radius:99px;white-space:nowrap;font-size:15px}
+nav a:hover,nav a:focus-visible{background:var(--blue);outline:none}
+main{max-width:860px;margin:auto;padding:0 16px 60px}
+section{margin-top:56px}
+h2{font-size:1.9rem;margin:0 0 6px}
+.lead{color:#46557a;margin:0 0 18px}
+.box{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:18px 20px;margin:16px 0;box-shadow:5px 5px 0 var(--ink)}
+.box.key{background:var(--sun);}
+.box.ex{background:var(--card)}
+.box h3{margin:0 0 8px;font-size:1.1rem}
+.tag{display:inline-block;background:var(--ink);color:#fff;border-radius:6px;padding:1px 10px;font-size:.85rem;margin-bottom:8px}
+.f{font-family:"Cambria Math",Georgia,serif;font-size:1.08em;background:#fff8;padding:1px 6px;border-radius:4px}
+ul{padding-left:20px;margin:6px 0}
+.ans{background:var(--mint);border-radius:8px;padding:10px 14px;margin-top:10px}
+svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px;border:1px solid var(--grid)}
+input[type=range]{width:100%;accent-color:var(--red)}
+.out{font-weight:700;color:var(--red)}
+details{margin-top:10px}summary{cursor:pointer;font-weight:700;color:var(--blue)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}td,th{border:1px solid var(--ink);padding:6px 10px;text-align:left}th{background:var(--grid)}
+.bar{display:flex;height:34px;border-radius:6px;overflow:hidden;border:2px solid var(--ink);font-size:.85rem;font-weight:700}
+.bar div{display:flex;align-items:center;justify-content:center;color:#fff}
+footer{text-align:center;padding:30px;color:#46557a}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+<h1>Toán 12 <span>trong đời thực</span></h1>
+<p>5 chuyên đề trọng tâm: công thức cần nhớ, ví dụ thực tế giải từng bước, hình minh họa và bộ câu luyện tập từ vận dụng đến vận dụng cao theo dạng đề tốt nghiệp THPT. Tự giải, nhập đáp án rồi mới xem lời giải.</p>
+</header>
+<nav>
+<a href="#dh">1. Đạo hàm</a><a href="#tp">2. Tích phân</a><a href="#oxyz">3. Oxyz</a><a href="#tk">4. Thống kê</a><a href="#xs">5. Xác suất</a>
+</nav>
+<main>
+
+<!-- 1 -->
+<section id="dh">
+<h2>1. Ứng dụng đạo hàm</h2>
+<p class="lead">Dùng để tìm giá trị lớn nhất, nhỏ nhất: tối đa lợi nhuận, tối thiểu chi phí, tối ưu vật liệu.</p>
+<div class="box key"><span class="tag">Cần nhớ</span>
+<ul>
+<li><span class="f">f′(x) &gt; 0</span> trên khoảng: hàm đồng biến. <span class="f">f′(x) &lt; 0</span>: nghịch biến.</li>
+<li>Cực trị: giải <span class="f">f′(x) = 0</span>, f′ đổi dấu từ + sang − là cực đại, từ − sang + là cực tiểu.</li>
+<li>GTLN, GTNN trên [a; b]: so sánh f tại các điểm f′ = 0 trong đoạn và hai đầu mút a, b.</li>
+<li>Tiệm cận ngang: <span class="f">lim f(x) = y₀</span> khi x → ±∞. Tiệm cận đứng: <span class="f">lim f(x) = ±∞</span> khi x → x₀.</li>
+</ul></div>
+<div class="box ex"><span class="tag">Ví dụ thực tế</span>
+<h3>Làm hộp không nắp từ tấm bìa vuông 12 cm</h3>
+<p>Cắt bốn hình vuông cạnh x ở bốn góc rồi gấp lên. Tìm x để hộp chứa được nhiều nhất.</p>
+<svg viewBox="0 0 560 270" id="boxg" role="img" aria-label="Đồ thị thể tích hộp theo x"></svg>
+<label>Kéo x: <b class="out" id="xv">2.0</b> cm → thể tích V = <b class="out" id="vv">128</b> cm³</label>
+<input type="range" id="xsl" min="0.1" max="5.9" step="0.1" value="2" aria-label="Chọn x">
+<div class="ans"><b>Giải:</b> V(x) = x(12 − 2x)² với 0 &lt; x &lt; 6.<br>
+V′(x) = (12 − 2x)² − 4x(12 − 2x) = (12 − 2x)(12 − 6x). V′ = 0 ⇒ x = 2 (loại x = 6).<br>
+V′ đổi dấu + sang − tại x = 2 nên V lớn nhất: <b>V(2) = 2·8² = 128 cm³</b>.</div></div>
+</section>
+
+<!-- 2 -->
+<section id="tp">
+<h2>2. Nguyên hàm và tích phân</h2>
+<p class="lead">Tính "tổng tích lũy": quãng đường từ vận tốc, diện tích hình phẳng, thể tích vật thể.</p>
+<div class="box key"><span class="tag">Cần nhớ</span>
+<table><tr><th>Hàm f(x)</th><th>Nguyên hàm F(x)</th></tr>
+<tr><td>xⁿ</td><td>xⁿ⁺¹/(n+1) + C (n ≠ −1)</td></tr>
+<tr><td>1/x</td><td>ln|x| + C</td></tr>
+<tr><td>eˣ</td><td>eˣ + C</td></tr>
+<tr><td>sin x / cos x</td><td>−cos x + C / sin x + C</td></tr></table>
+<ul><li>Newton–Leibniz: <span class="f">∫ₐᵇ f(x)dx = F(b) − F(a)</span></li>
+<li>Diện tích giữa hai đồ thị: <span class="f">S = ∫ₐᵇ |f(x) − g(x)| dx</span></li>
+<li>Thể tích khối tròn xoay quanh Ox: <span class="f">V = π∫ₐᵇ [f(x)]² dx</span></li>
+<li>Vận tốc v(t) = s′(t), nên quãng đường <span class="f">s = ∫ v(t)dt</span></li></ul></div>
+<div class="box ex"><span class="tag">Ví dụ thực tế</span>
+<h3>Xe ô tô vào trạm rồi dừng</h3>
+<p>Xe chạy với vận tốc v(t) = 6t − t² (m/s), từ lúc t = 0 đến khi dừng hẳn. Xe đi được bao xa?</p>
+<svg viewBox="0 0 560 250" id="areag" role="img" aria-label="Diện tích dưới đồ thị vận tốc"></svg>
+<div class="ans"><b>Giải:</b> v = 0 ⇒ t = 0 hoặc t = 6. <br>
+s = ∫₀⁶ (6t − t²)dt = [3t² − t³/3]₀⁶ = 108 − 72 = <b>36 m</b>.<br>
+Phần tô màu chính là quãng đường: <i>diện tích dưới đồ thị vận tốc</i>.</div></div>
+</section>
+
+<!-- 3 -->
+<section id="oxyz">
+<h2>3. Vectơ và hệ tọa độ Oxyz</h2>
+<p class="lead">Mô tả vị trí trong không gian: drone, radar, GPS, thiết kế 3D.</p>
+<div class="box key"><span class="tag">Cần nhớ</span>
+<ul>
+<li>Độ dài đoạn AB: <span class="f">√[(x_B−x_A)² + (y_B−y_A)² + (z_B−z_A)²]</span></li>
+<li>Tích vô hướng: <span class="f">a·b = a₁b₁ + a₂b₂ + a₃b₃ = |a||b|cos φ</span>; a ⊥ b ⇔ a·b = 0</li>
+<li>Mặt phẳng: <span class="f">Ax + By + Cz + D = 0</span>, vectơ pháp tuyến n = (A; B; C)</li>
+<li>Khoảng cách từ M₀ đến mặt phẳng: <span class="f">d = |Ax₀ + By₀ + Cz₀ + D| / √(A²+B²+C²)</span></li>
+<li>Mặt cầu tâm I(a; b; c), bán kính R: <span class="f">(x−a)² + (y−b)² + (z−c)² = R²</span></li></ul></div>
+<svg viewBox="0 0 560 280" role="img" aria-label="Hệ trục Oxyz và mặt cầu">
+<line x1="200" y1="170" x2="200" y2="20" stroke="#14213d" stroke-width="2.5"/><text x="208" y="28">z</text>
+<line x1="200" y1="170" x2="520" y2="170" stroke="#14213d" stroke-width="2.5"/><text x="505" y="190">y</text>
+<line x1="200" y1="170" x2="90" y2="255" stroke="#14213d" stroke-width="2.5"/><text x="80" y="268">x</text>
+<ellipse cx="200" cy="170" rx="105" ry="105" fill="#2b6cb022" stroke="#2b6cb0" stroke-width="2"/>
+<ellipse cx="200" cy="170" rx="105" ry="34" fill="none" stroke="#2b6cb0" stroke-dasharray="5 4"/>
+<line x1="200" y1="170" x2="300" y2="132" stroke="#e63946" stroke-width="3"/>
+<circle cx="300" cy="132" r="6" fill="#e63946"/><text x="310" y="128" fill="#e63946" font-weight="700">M(6; 8; 0)</text>
+<circle cx="200" cy="170" r="5" fill="#14213d"/><text x="150" y="162">O (Wi-Fi)</text>
+<text x="330" y="60" font-size="14">Vùng phủ sóng: mặt cầu tâm O, R = 10 m</text>
+</svg>
+<div class="box ex"><span class="tag">Ví dụ thực tế</span>
+<h3>Bộ phát Wi-Fi đặt ở gốc tọa độ, tầm phủ sóng 10 m</h3>
+<p>Điện thoại ở M(6; 8; 0) có bắt được sóng không? Còn điện thoại ở N(2; 1; 5) đứng cách sàn nhà bao xa nếu sàn là mặt phẳng (P): 2x − y + 2z − 6 = 0?</p>
+<div class="ans"><b>Giải:</b> OM = √(36 + 64 + 0) = 10 = R ⇒ M nằm đúng trên biên, sóng yếu nhất.<br>
+d(N,(P)) = |4 − 1 + 10 − 6| / √(4+1+4) = 7/3 ≈ <b>2,33 m</b>.</div></div>
+</section>
+
+<!-- 4 -->
+<section id="tk">
+<h2>4. Các số đặc trưng đo độ phân tán</h2>
+<p class="lead">So sánh độ ổn định: hai lớp cùng điểm trung bình nhưng lớp nào đều hơn?</p>
+<div class="box key"><span class="tag">Cần nhớ</span>
+<ul>
+<li>Khoảng biến thiên: <span class="f">R = x_max − x_min</span></li>
+<li>Khoảng tứ phân vị: <span class="f">Δ_Q = Q₃ − Q₁</span> (ít bị ảnh hưởng bởi giá trị ngoại lai)</li>
+<li>Phương sai: <span class="f">s² = (1/n)·Σ(xᵢ − x̄)² = (1/n)Σxᵢ² − x̄²</span></li>
+<li>Độ lệch chuẩn: <span class="f">s = √s²</span>. Càng nhỏ thì số liệu càng tập trung.</li></ul></div>
+<div class="box ex"><span class="tag">Ví dụ thực tế</span>
+<h3>Điểm 7 bài kiểm tra của một bạn: 4, 6, 6, 7, 8, 9, 10</h3>
+<svg viewBox="0 0 560 130" role="img" aria-label="Biểu đồ hộp">
+<g stroke="#14213d" stroke-width="2"><line x1="40" y1="95" x2="520" y2="95"/>
+<line x1="100" y1="50" x2="220" y2="50" /><line x1="400" y1="50" x2="460" y2="50"/>
+<line x1="100" y1="38" x2="100" y2="62"/><line x1="460" y1="38" x2="460" y2="62"/></g>
+<rect x="220" y="28" width="180" height="44" fill="#ffd166" stroke="#14213d" stroke-width="2"/>
+<line x1="280" y1="28" x2="280" y2="72" stroke="#e63946" stroke-width="4"/>
+<g font-size="13" text-anchor="middle"><text x="100" y="115">4</text><text x="160" y="115">5</text><text x="220" y="115">6</text><text x="280" y="115">7</text><text x="340" y="115">8</text><text x="400" y="115">9</text><text x="460" y="115">10</text>
+<text x="220" y="20">Q₁</text><text x="280" y="20" fill="#e63946">Q₂</text><text x="400" y="20">Q₃</text></g></svg>
+<div class="ans"><b>Giải:</b> R = 10 − 4 = 6. Q₂ = 7, Q₁ = 6, Q₃ = 9 ⇒ Δ_Q = 3.<br>
+Trung bình x̄ = 50/7 ≈ 7,14. Σx² = 382 ⇒ s² = 382/7 − (50/7)² ≈ 3,55 ⇒ <b>s ≈ 1,88</b>.<br>
+<i>Nếu một bạn khác có s ≈ 0,8 với cùng điểm trung bình thì bạn đó học đều tay hơn.</i></div></div>
+</section>
+
+<!-- 5 -->
+<section id="xs">
+<h2>5. Xác suất có điều kiện</h2>
+<p class="lead">Dùng khi biết thêm thông tin: kết quả xét nghiệm, kiểm tra hàng lỗi, lọc thư rác.</p>
+<div class="box key"><span class="tag">Cần nhớ</span>
+<ul>
+<li><span class="f">P(A|B) = P(A∩B) / P(B)</span> với P(B) &gt; 0</li>
+<li>Nhân: <span class="f">P(A∩B) = P(B)·P(A|B)</span></li>
+<li>Toàn phần: <span class="f">P(A) = P(B)P(A|B) + P(B̄)P(A|B̄)</span></li>
+<li>Bayes: <span class="f">P(B|A) = P(B)P(A|B) / P(A)</span></li>
+<li>A, B độc lập ⇔ P(A∩B) = P(A)·P(B)</li></ul></div>
+<div class="box ex"><span class="tag">Ví dụ thực tế</span>
+<h3>Xét nghiệm dương tính có nghĩa là chắc chắn bị bệnh?</h3>
+<p>Một bệnh có 1% dân số mắc. Xét nghiệm cho dương tính với 95% người bệnh và 5% người khỏe (dương tính giả). Bạn xét nghiệm dương tính, xác suất bạn thực sự bệnh là bao nhiêu?</p>
+<div class="ans"><b>Giải:</b> B = bệnh, A = dương tính.<br>
+P(A) = 0,01·0,95 + 0,99·0,05 = 0,0095 + 0,0495 = 0,059.<br>
+P(B|A) = 0,0095 / 0,059 ≈ <b>16,1%</b>, rất thấp so với trực giác!</div>
+<p>Trong 100 người dương tính, chỉ khoảng 16 người thực sự bệnh:</p>
+<div class="bar"><div style="width:16.1%;background:#e63946">16%</div><div style="width:83.9%;background:#2b6cb0">Dương tính giả 84%</div></div>
+<p style="font-size:.95rem">Vì bệnh hiếm, số người khỏe bị báo nhầm lớn hơn số người bệnh thật. Vì vậy bác sĩ thường cho xét nghiệm lần hai.</p></div>
+</section>
+</main>
+<footer>Chúc bạn ôn thi tốt. Học xong mỗi chuyên đề, hãy tự giải lại ví dụ không nhìn đáp án.</footer>
+
+<script>
+(function(){
+const NS="http://www.w3.org/2000/svg";
+function mk(p,t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+// Đồ thị V(x)
+const g=document.getElementById("boxg"),L=50,R=530,T=20,B=235;
+const X=x=>L+x/6*(R-L),Y=v=>B-v/140*(B-T),V=x=>x*(12-2*x)*(12-2*x);
+mk(g,"line",{x1:L,y1:B,x2:R,y2:B,stroke:"#14213d","stroke-width":2});
+mk(g,"line",{x1:L,y1:T,x2:L,y2:B,stroke:"#14213d","stroke-width":2});
+for(let i=0;i<=6;i++){const t=mk(g,"text",{x:X(i)-4,y:B+18,"font-size":13});t.textContent=i}
+let d="";for(let x=0;x<=6.001;x+=.1)d+=(x?"L":"M")+X(x)+","+Y(V(x));
+mk(g,"path",{d,fill:"none",stroke:"#2b6cb0","stroke-width":3});
+const mx=mk(g,"circle",{r:7,fill:"#e63946"}),vl=mk(g,"line",{stroke:"#e63946","stroke-dasharray":"4 4"});
+const mt=mk(g,"text",{"font-size":13,fill:"#14213d"});mt.textContent="Cực đại tại x = 2";mt.setAttribute("x",X(2)+12);mt.setAttribute("y",Y(128)-10);
+mk(g,"circle",{cx:X(2),cy:Y(128),r:4,fill:"none",stroke:"#14213d","stroke-width":2});
+const s=document.getElementById("xsl");
+function up(){const x=+s.value,v=V(x);mx.setAttribute("cx",X(x));mx.setAttribute("cy",Y(v));
+vl.setAttribute("x1",X(x));vl.setAttribute("x2",X(x));vl.setAttribute("y1",Y(v));vl.setAttribute("y2",B);
+document.getElementById("xv").textContent=x.toFixed(1);document.getElementById("vv").textContent=v.toFixed(1)}
+s.oninput=up;up();
+// Diện tích dưới v(t)
+const a=document.getElementById("areag"),l=50,r=530,b=215,t=15;
+const AX=x=>l+x/6*(r-l),AY=v=>b-v/9*(b-t),f=x=>6*x-x*x;
+let p="M"+AX(0)+","+AY(0);for(let x=0;x<=6.001;x+=.1)p+="L"+AX(x)+","+AY(f(x));
+mk(a,"path",{d:p+"Z",fill:"#ffd166",stroke:"#e63946","stroke-width":3});
+mk(a,"line",{x1:l,y1:b,x2:r,y2:b,stroke:"#14213d","stroke-width":2});
+mk(a,"line",{x1:l,y1:t,x2:l,y2:b,stroke:"#14213d","stroke-width":2});
+for(let i=0;i<=6;i++){const q=mk(a,"text",{x:AX(i)-4,y:b+18,"font-size":13});q.textContent=i}
+const q=mk(a,"text",{x:AX(3)-42,y:AY(4),"font-size":16,"font-weight":700});q.textContent="S = 36 m";
+const w=mk(a,"text",{x:AX(3)+8,y:AY(9)-4,"font-size":13});w.textContent="v lớn nhất = 9 m/s lúc t = 3 s";
+const u=mk(a,"text",{x:r-30,y:b+36,"font-size":13});u.textContent="t (s)";
+})();
+</script>
+<script src="extra.js"></script>
+<script src="extra2.js"></script>
+<script src="extra3.js"></script>
+<script src="problems.js"></script>
+</body>
+</html>
